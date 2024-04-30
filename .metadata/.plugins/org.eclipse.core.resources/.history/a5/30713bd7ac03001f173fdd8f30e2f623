@@ -1,0 +1,25 @@
+package kh.java.test.function;
+import java.util.Scanner;
+public class Exmaple {
+
+	public void exam1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("국어 점수 입력 :");
+		double K = sc.nextDouble();
+		
+		System.out.println("영어 점수 입력 :");
+		double E = sc.nextDouble();
+		
+		System.out.println("수학 점수 입력 :");
+		double M = sc.nextDouble();
+		
+		int sum = (int)(K+E+M);
+		int avg = sum/3;
+		
+		System.out.println("합계" +sum);
+		System.out.println("평균" +avg);
+		
+		
+		
+	}
+}

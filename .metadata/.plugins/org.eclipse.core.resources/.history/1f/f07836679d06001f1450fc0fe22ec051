@@ -1,0 +1,18 @@
+package kh.java.start;
+import kh.java.function.IfTest;
+import kh.java.function.SwitchTest;
+public class Start {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//IfTest 컨트롤 스페이스
+		//IfTest it = new IfTest();
+		//SwitchTest st = new SwitchTest();
+		ForTest fo = new ForTest();
+		//it.test11();
+		//st.test4();
+		fo.test1():
+	}
+	
+
+}

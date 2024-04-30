@@ -1,0 +1,16 @@
+package kh.java.function;
+
+import java.util.Scanner;
+
+public class Example {
+	public void scantest1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("첫번 째 정수 입력 :");
+		int first = sc.nextInt();
+		
+		System.out.println("두번 째 정수 입력 :");
+		int second = sc.nextInt();
+		
+	}
+			
+}

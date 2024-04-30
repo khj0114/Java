@@ -1,0 +1,11 @@
+package kh.java.practice;
+
+import java.util.Scanner;
+public class Sample {
+	public void Sample1() {
+		Scanner sc = new Scanner(System.in);
+	}
+	
+	}
+
+	

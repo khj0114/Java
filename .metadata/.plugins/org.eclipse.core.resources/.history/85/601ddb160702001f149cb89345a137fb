@@ -1,0 +1,8 @@
+package kh.java.func;
+
+public class functionClass {
+
+	public void methodName() {
+		
+	}
+}

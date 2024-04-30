@@ -1,0 +1,19 @@
+package kh.java.function;
+
+public class WhileTest {
+	public void test1() {
+		/*조건식이 true이면 실행코드를 반복해서 수행
+		 한번실행되면 다시 실행하기전에 조건식을 1번씩 다시검사
+		 while(조건식){
+		 실행코드
+		} */
+		 int i =0;
+		 while(i<3) {
+			System.out.println("안녕하세요");
+			i++;
+		 }
+		 
+		
+		}
+	}
+

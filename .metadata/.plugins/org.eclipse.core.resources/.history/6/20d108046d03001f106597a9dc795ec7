@@ -1,0 +1,28 @@
+package kh.java.function;
+
+import java.util.Scanner;
+
+public class Example {
+	public void scantest1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("첫번 째 정수 입력 :");
+		int fs = sc.nextInt();
+		
+		System.out.println("두번 째 정수 입력 :");
+		int se = sc.nextInt();
+		System.out.println("===========결과===========");
+		int num = fs + se;
+		System.out.println("더하기 결과 :");
+		int num1 = fs - se;
+		System.out.println("빼기 결과 :");
+		int x = fs * se;
+		System.out.println("곱하기 결과 :");
+		int z = fs / se;
+		System.out.println("나누기 몫 :");
+		int y = fs % se;
+		System.out.println("나누기 나머지 :");
+		
+		
+	}
+			
+}

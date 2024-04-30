@@ -1,0 +1,33 @@
+package kh.java.practice;
+
+import java.util.Scanner;
+public class Sample {
+	public void Sample1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("문자 입력 :");
+		char ch = sc.next().charAt(0);
+		int unicode = ch;
+		System.out.println(ch+"의 유니코드 값 :"+unicode);
+		System.out.println(ch+"의 유니코드 값 :"+(int)ch);
+		System.out.printf("%c의 유니코드 값 : %d",ch,(int)ch);
+		
+		
+		
+	}
+	public void Sample2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("국어 점수 입력 :");
+		int K =sc.nextInt();
+		
+		System.out.print("수학점수 입력 :");
+		int M = sc.nextInt();
+		
+		System.out.print("영어점수 입력 :");
+		int E = sc.nextInt();
+		
+		
+	}
+	
+	}
+
+	

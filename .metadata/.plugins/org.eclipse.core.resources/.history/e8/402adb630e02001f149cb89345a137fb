@@ -1,0 +1,8 @@
+package kr.or.iei.vo;
+
+public class informationClass{
+
+	public void printinfo() {
+		System.out.printin("");
+	}
+}
