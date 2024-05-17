@@ -35,6 +35,7 @@ public class WhileTest {
 		int i =0;
 		while(i<10) {
 			System.out.printf("%d *%d = %d \n",num,i,num*i);
+			//System.out.println(num+"*"+(i+1)+" = "+(num*(i_1)));
 			i++;
 		}
 		}
@@ -46,8 +47,9 @@ public class WhileTest {
 		while(i<5) {
 		System.out.println("정수 값을 입력하시오 :");
 		int num =sc.nextInt();
-		i++;
 		sum += num;
+		//sum += sc.nextInt();
+		i++;
 		System.out.println("입력한 5개의 정수의 합 :"+sum);
 		
 		}
@@ -67,8 +69,36 @@ public class WhileTest {
 			i++;
 		}
 		System.out.printf("%d~%d의 정수의 합 :%d",num,num1,sum);
+	}
+	public void test6() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("숫자 입력 :");
+		int num =sc.nextInt();
+		int i =1;
+		int sum =0;
+		while(i<num+1) {
+			if(i%2 == 0) {
+				sum+= i;
+			}
+			i++;
+			
 		}
-	
+		System.out.println("짝수들의 합은 :"+sum );
+	}
+	public void test7() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("정수를 입력하세요 :");
+		int num = sc.nextInt();
+		do {
+			System.out.println(num);
+			num++;
+		}while(num<10);
+		/*
+		while(num<10) {
+			System.out.println(num);
+			num++;
+		}*/
+	}
 		
 }
 

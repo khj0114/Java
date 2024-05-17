@@ -1,9 +1,0 @@
-package kr.or.iei.vo;
-
-public class kr.or.iei.start.information.java; 
-{
-
-	public void printinfo() {
-		System.out.printin("");
-	}
-}

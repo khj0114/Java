@@ -1,9 +1,10 @@
 content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaPostfixProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="kr.co.iei.student.vo.Student"><rhs name\="kr.co.iei.student.vo.Student"/></lhs><lhs name\="kr.co.iei.point.vo.SearchResult"><rhs name\="kr.co.iei.point.vo.SearchResult"/></lhs><lhs name\="kh.java.test2.NewTV"><rhs name\="kh.java.test3.SamsungTV"/></lhs><lhs name\="kh.java.test3.SamsungTV"><rhs name\="kh.java.test3.SamsungTV"/></lhs><lhs name\="java.util.Iterator"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="kr.co.shop.vo.Product"><rhs name\="kr.co.shop.vo.Shirt"/><rhs name\="kr.co.shop.vo.Outer"/><rhs name\="kr.co.shop.vo.Pants"/></lhs><lhs name\="kr.co.shop.vo.Shirt"><rhs name\="kr.co.shop.vo.Shirt"/></lhs><lhs name\="kr.co.shop.vo.Outer"><rhs name\="kr.co.shop.vo.Outer"/></lhs><lhs name\="kr.co.shop.vo.Pants"><rhs name\="kr.co.shop.vo.Pants"/></lhs><lhs name\="kr.co.iei.baseball.controller.BaseballMgrInterface"><rhs name\="kr.co.iei.baseball.controller.BaseballMgr"/></lhs><lhs name\="kr.co.iei.baseball.controller.BaseballMgr"><rhs name\="kr.co.iei.baseball.controller.BaseballMgr"/></lhs><lhs name\="kr.co.iei.baseball.vo.Seat"><rhs name\="kr.co.iei.baseball.vo.Seat"/></lhs><lhs name\="kr.co.iei.baseball.vo.Grade"><rhs name\="kr.co.iei.baseball.vo.General"/></lhs><lhs name\="kr.co.iei.baseball.vo.General"><rhs name\="kr.co.iei.baseball.vo.General"/></lhs></history>
 content_assist_number_of_computers=20
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
+markOccurrences=false
 org.eclipse.jdt.internal.ui.navigator.layout=2
 org.eclipse.jdt.internal.ui.navigator.librariesnode=true
 org.eclipse.jdt.ui.formatterprofiles.version=23

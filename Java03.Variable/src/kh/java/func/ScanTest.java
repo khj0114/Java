@@ -64,7 +64,7 @@ public class ScanTest {
 		
 		System.out.println("문자를 입력하세요 : ");
 		char ch2 = sc.next().charAt(0);
-		System.out.println("ch : "+ ch2);
+		System.out.println("ch : "+ch2);
 		
 		/*사용자의 입력을 기다리다가 사용자가 입력하면 입력한 데이터를
 		 * sc.nextlnt() :정수로 가져옴
