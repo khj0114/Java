@@ -1,5 +1,6 @@
 package kr.co.lel.student.controller;
 import java.util.Scanner;
+
 import kr.co.iei.student.vo.Student;
 
 public class StudentController {
@@ -218,9 +219,7 @@ public class StudentController {
 		
 	}//deleteStudent 종료
 	
-	
-	
-	
+
 	//매개변수로 받은 이름이 배열의 몇번째에 존재하는지 리턴하는 메소드/존재하지 않으면 -1을 리턴
 	public int searchStudent(String name) {
 		int searchIndex = -1;

@@ -14,7 +14,7 @@ public class RandomTest {
 		int num = r.nextInt(); // int 범위내에서 random숫자 1개 가져옴
 		System.out.println("랜덤 수 :" + num);
 		// random수 범위를 제한
-		// r,nextInt(숫자); 해당숫자 갯수만큼의 범위내에서 랜덤으로 가져옴
+		// r.nextInt(숫자); 해당숫자 갯수만큼의 범위내에서 랜덤으로 가져옴
 		// 범위숫자의 시작숫자는 0부터~
 		int num1 = r.nextInt(10);// 0~9까지 중 1개의 수를 랜덤으로 가져옴
 		System.out.println("랜덤 수 :" + num1);

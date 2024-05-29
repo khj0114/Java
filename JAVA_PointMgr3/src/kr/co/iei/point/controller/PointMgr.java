@@ -137,8 +137,7 @@ public class PointMgr implements PointMgrInterface{
 	}
 
 	@Override
-	public void updateMember() {
-		// TODO Auto-generated method stub
+	public void	updateMember() {		
 		System.out.println("\n------------회원 정보 수정------------\n");
 		System.out.println("수정 할 회원 이름 입력 :");
 		String name = sc.next();

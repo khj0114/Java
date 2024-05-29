@@ -1,5 +1,6 @@
 package kr.co.game.controller;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import kr.co.iei.Game.Character;
@@ -9,6 +10,7 @@ import kr.co.iei.Game.Tanker;
 import kr.co.iei.Game.Member;
 
 public class GameController {
+	private Random r;
 	private Scanner sc;
 	private Character[] characterList;		//전체 판매 상품을 저장하는 배열
 	private int CharacterIndex;	
@@ -166,7 +168,7 @@ public class GameController {
 				break;
 			case 5:
 				if(ch.getType() == 2) {
-					System.out.print("수정할 힐러의 힐 수치를 입력해주세요 : ");
+					System.out.print("수정할 힐러의 힐 수치를 입력해주세요 : "); 
 					int modifyHeal = sc.nextInt();
 					System.out.print("수정할 힐러의 버프 수치를 입력해주세요 : ");
 					int modifyBuff = sc.nextInt();
@@ -273,12 +275,14 @@ public class GameController {
 		
 		members[memberIndex++] = new Member(name, id, pw);
 		
+		showUser();
+		
+	
+	}
+	public void showUser() {
 		System.out.println("이름\t아이디\t비밀번호");
 		for(int i = 0; i < memberIndex; i++) {
-			System.out.print(members[i].getName()+"\t");
-			System.out.print(members[i].getId()+"\t");
-			System.out.print(members[i].getPw()+"\t");
-			System.out.println();
+			System.out.println(members[i].getName()+"\t"+members[i].getId()+"\t"+members[i].getPw()+"\n");
 		}
 	}
 
@@ -312,8 +316,307 @@ public class GameController {
 		}		
 		
 	}
+	/*
+	<Battle 게임 설명> 
+	1. 플레이어는 캐릭터를 하나 선택
+	2. 상대방은 가상의 캐릭터
+	3. 플레이어가 공격/방어/회피 중 1개 선택
+	4. 1번 공격 시, <내 캐릭터> 의 공격으로 '상대 캐릭터'의 체력이 소모되고 이후
+	상대 캐릭터의 공격으로 '플레이어 캐릭터'의 체력이 소모되는 방식
+	5. 2번 방어 시, 
+	 */
 	
+	// Battle() 실행
+	public void Battle() {
+
+		int win = 0;
+		int lose = 0;
+		int draw = 0;
+
+		int myHp = 200;
+		int comHp = 200;
+
+		boolean exit = true;
+		while (true) { // 1번 while
+			System.out.println("===== Battle =====");
+			System.out.println("1. Game Start");
+			System.out.println("2. Game Score");
+			System.out.println("3. Game End");
+			System.out.print("선택 >> ");
+			int select = sc.nextInt();
+			switch (select) { // 1번 switch
+			
+			// 1. Game Start
+			case 1:
+				while (exit) { // 2번 while
+					sleep(1000);
+					System.out.println();
+					System.out.println();
+					System.out.println("<내 캐릭터> HP : " + myHp);
+					System.out.println("[상대방 캐릭터] HP : " + comHp);
+					sleep(1000);
+					System.out.println();
+					System.out.print("1.공격/2.방어/3.회피 중 하나를 선택해주세요 : ");
+					int answer = sc.nextInt();
+					switch (answer) { // 2번 switch
+
+					// 1. 공격
+					case 1:
+						while (true) { // 3번 while
+							// 내 턴
+							sleep(1500);
+							System.out.println();
+							System.out.println("<내 캐릭터> 가 공격합니다!");							
+							sleep(1500);
+							
+							int myAttack = r.nextInt(100);
+							if (myAttack >= 50) {
+								System.out.println("[상대방 캐릭터]가 '치명적인' 피해를 입었습니다!!!");
+								sleep(1500);
+								System.out.println("[상대방 캐릭터] HP -" + myAttack);
+								comHp -= myAttack;								
+								System.out.println("[상대방 캐릭터] HP : " + comHp);
+								sleep(1500);
+								if (comHp <= 0) {									
+									System.out.println("승리!!!!!");
+									sleep(1500);
+									win++;
+									exit = false;
+									break;
+								}
+							} else if (myAttack < 50 && myAttack > 0) {
+								System.out.println("[상대방 캐릭터]가 피해를 입었습니다.");
+								sleep(1500);
+								System.out.println("[상대방 캐릭터] HP -" + myAttack);								
+								comHp -= myAttack;
+								System.out.println("[상대방 캐릭터] HP : " + comHp);
+								sleep(1500);
+								if (comHp <= 0) {									
+									System.out.println("승리!!!!!");
+									sleep(1500);
+									win++;
+									exit = false;
+									break;
+								}
+							} else if (myAttack == 0) {
+								System.out.println("[상대방 캐릭터]가 피했습니다...ㅠㅠ");
+								sleep(1500);
+							}
+							
+							sleep(1500);	
+							
+							// 상대방 턴
+							System.out.println();
+							System.out.println("[상대방 캐릭터]가 공격합니다!");
+							sleep(1500);
+														
+							
+							int comAttack = r.nextInt(100);
+							if (comAttack >= 50) {
+								System.out.println("<내 캐릭터> 가 '치명적인' 피해를 입었습니다!!!");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP -" + comAttack);								
+								myHp -= comAttack;
+								System.out.println("<내 캐릭터> HP : " + myHp);
+								sleep(1500);
+								if (myHp <= 0) {									
+									System.out.println("패배....");
+									sleep(1500);
+									lose++;
+									exit = false;
+								}
+							} else if (comAttack < 50 && comAttack > 0) {
+								System.out.println("<내 캐릭터> 가 피해를 입었습니다.");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP -" + comAttack);
+								myHp -= comAttack;
+								System.out.println("<내 캐릭터> HP : " + myHp);
+								sleep(1500);
+								if (myHp <= 0) {
+									System.out.println("패배....");
+									sleep(1500);
+									lose++;
+									break;
+								}
+							} else if (comAttack == 0) {
+								System.out.println("<내 캐릭터> 가 피했습니다.^^");
+								sleep(1500);
+							}
+							sleep(1500);
+							System.out.println();
+							System.out.println("양쪽 플레이어가 체력을 10 포인트 회복합니다.");
+							sleep(1500);
+							System.out.println();
+							System.out.println("<내 캐릭터> HP + 10");
+							System.out.println("[상대방 캐릭터] HP  + 10");
+							sleep(1500);
+													
+							myHp += 10;
+							comHp += 10;
+							System.out.println("<내 캐릭터>  HP : " + myHp);
+							System.out.println("[상대방 캐릭터] HP : " + comHp);
+							sleep(1500);
+							break;							
+						} // 3번 while
+						break;
+
+					// 2. 방어
+					case 2:
+						System.out.println("<내 캐릭터> 가 방어 자세를 취합니다.");						
+						sleep(1500);
+						
+						int comAttack = r.nextInt(100);
+						System.out.println("[상대방 캐릭터]가 공격합니다!");
+						sleep(1500);
+						int defend = r.nextInt(1);
+												
+						if (defend == 0) {
+							System.out.println("<내 캐릭터> 가 방어에 '성공'했습니다!! ^^");
+							sleep(1500);							
+							System.out.println("<내 캐릭터> 가 방어에 '성공'하여 상대방의 Hp가 30 감소합니다!! ^^");
+							sleep(1500);
+							comHp -= 30;
+							System.out.println("[상대방 캐릭터] HP : "+comHp);
+							sleep(1500);
+							if (comHp <= 0) {								
+								System.out.println("승리!!!!! ^^");
+								sleep(1500);
+								win++;
+								break;
+							}
+						} else if (defend == 1) {
+							System.out.println("<내 캐릭터> 가 방어에 '실패'했습니다...ㅠㅠ");
+							sleep(1500);
+							// 상대방 턴
+							System.out.println("[상대방 캐릭터]가 공격합니다!");
+							sleep(1500);
+							comAttack = r.nextInt(100);
+							if (comAttack >= 50) {
+								System.out.println("<내 캐릭터> 가 '치명적인' 피해를 입었습니다!!ㅠㅠ");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP -" + comAttack);
+								myHp -= comAttack;
+								System.out.println("<내 캐릭터> HP : " + myHp);
+							} else if (comAttack < 50 && comAttack > 0) {
+								System.out.println("<내 캐릭터> 가 피해를 입었습니다.");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP -" + comAttack);
+								myHp -= comAttack;
+								System.out.println("<내 캐릭터> HP : " + myHp);
+							} else if (comAttack == 0) {
+								System.out.println("<내 캐릭터> 가 피했습니다.");
+								sleep(1500);
+							}
+						}
+						sleep(1500);
+						System.out.println();
+						System.out.println("양쪽 플레이어가 체력을 10 포인트 회복합니다.");
+						sleep(1500);
+						System.out.println();
+						System.out.println("<내 캐릭터> HP + 10");
+						System.out.println("[상대방 캐릭터] HP  + 10");
+						sleep(1500);
+												
+						myHp += 10;
+						comHp += 10;
+						System.out.println("<내 캐릭터>  HP : " + myHp);
+						System.out.println("[상대방 캐릭터] HP : " + comHp);
+						sleep(1500);
+						break;
+						
+					// 3. 회피
+					case 3:
+						System.out.println("<내 캐릭터> 가 회피 자세를 취합니다.");						
+						sleep(1500);
+						
+						comAttack = r.nextInt(100);
+						System.out.println("[상대방 캐릭터]가 공격합니다!");
+						sleep(1500);
+
+						int miss = r.nextInt(1);
+						if (miss == 0) {
+							System.out.println("<내 캐릭터> 가 회피에 '성공'했습니다!!^^");
+							sleep(1500);
+							System.out.println("<내 캐릭터> 가 회피에 '성공'하여 Hp를 15 회복합니다!!^^");
+							sleep(1500);
+							myHp += 15;
+							System.out.println("<내 캐릭터>  HP : "+myHp);
+							sleep(1500);
+						} else if (miss == 1) {
+							System.out.println("<내 캐릭터> 가 회피에 '실패'했습니다ㅠㅠ");
+							sleep(1500);
+							// 상대방 턴
+							System.out.println("[상대방 캐릭터]가 공격합니다!");
+							sleep(1500);
+							comAttack = r.nextInt(100);
+							if (comAttack >= 50) {
+								System.out.println("<내 캐릭터> 가 '치명적인' 피해를 입었습니다!!ㅠㅠ");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP : -" + comAttack);
+								myHp -= comAttack;	
+								System.out.println("<내 캐릭터>  HP : "+ myHp);
+								sleep(1500);
+								if (myHp <= 0) {
+									System.out.println("패배....");
+									sleep(1500);
+									lose++;
+								}
+							} else if (comAttack < 50 && comAttack > 0) {
+								System.out.println("<내 캐릭터> 가 피해를 입었습니다.");
+								sleep(1500);
+								System.out.println("<내 캐릭터> HP : -" + comAttack);
+								myHp -= comAttack;
+								System.out.println("<내 캐릭터> HP : " + myHp);
+								if (myHp <= 0) {
+									System.out.println("패배....");
+									sleep(1500);
+									lose++;
+								}
+							} else if (comAttack == 0) {
+								System.out.println("<내 캐릭터> 가 피했습니다.");
+								sleep(1500);
+							}
+								break;
+							}																																			
+										
+						sleep(1500);
+						System.out.println();
+						System.out.println("양쪽 플레이어가 체력을 10 포인트 회복합니다.");
+						System.out.println();
+						sleep(1500);
+												
+						myHp += 10;
+						comHp += 10;
+						System.out.println("<내 캐릭터>  HP : " + myHp);
+						System.out.println("[상대방 캐릭터] HP : " + comHp);
+						sleep(1500);
+						break;
+					}// 2번 switch
+				} // 2번 while
+			break;
+			
+			// 2. Game Score
+			case 2:
+				System.out.println("WIN : " + win);
+				System.out.println("LOSE : " + lose);
+				System.out.println("DRAW : " + draw);
+				break;
+			
+			// 3. Game End
+			case 3:
+				System.out.println("Battle 게임을 종료합니다.");
+				return;
+				
+			}// 1번 switch
+		} // 1번 while
+	}// Battle()
+
 	
+	private void sleep(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void memberUpdate() {
 		// TODO Auto-generated method stub
 		System.out.println("---------회원 정보 수정-----------");
@@ -342,6 +645,7 @@ public class GameController {
 			Member  m = new Member(modifyName, modifyId, modifyPw);
 			members[searchIndex] = m;
 			System.out.println("정보 수정 완료!");
+			showUser();
 		}
 	}
 
@@ -381,6 +685,7 @@ public class GameController {
 				System.out.println("ID 불일치");
 			}
 		}
+		showUser();
 	}
 	
 
